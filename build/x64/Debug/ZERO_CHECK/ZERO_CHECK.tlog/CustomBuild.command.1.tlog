@@ -1,0 +1,10 @@
+^C:\USERS\BRENT\DOCUMENTS\DEV\INVENTORY_TEST\BUILD\CMAKEFILES\71795080EC490E4E88C85C30C096A226\GENERATE.STAMP.RULE
+setlocal
+C:\CMake\bin\cmake.exe -SC:/Users/brent/Documents/dev/inventory_test -BC:/Users/brent/Documents/dev/inventory_test/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/brent/Documents/dev/inventory_test/build/inventory.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

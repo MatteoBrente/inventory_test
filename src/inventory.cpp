@@ -9,7 +9,7 @@
 
 Inventory::Inventory() {current_obj_it = inventory_array.end();}
 
-Inventory::~Inventory() {current_obj_it = nullptr;}
+Inventory::~Inventory() {}
 
 //PRIVATE FUNCTIONS
 
@@ -38,8 +38,7 @@ void Inventory::print_selected_object()
         << "Enter your selection: ";
         char selection{};
         
-        do
-        {
+        do {
             std::cin.sync();
             std::cin >> selection;
             selection = toupper(selection);
@@ -52,6 +51,7 @@ void Inventory::print_selected_object()
 
 void Inventory::use_current_object()
 {
+        //Use the current object, then delete it if its quantity is less than 1
         current_obj_it->use();
 
         if (current_obj_it->get_quantity() < 1)
@@ -80,12 +80,13 @@ void Inventory::create_new_object(std::string obj_name)
 
 void Inventory::rearrange_inventory()
 {
-    while (current_obj_it != &inventory_array.at(8))
+    //Rearrange the inventory, moving all non-empty objects at the its start
+    while (*(current_obj_it+1) != Object{})
     {
         *current_obj_it = *(current_obj_it+1);
+        *(current_obj_it+1) = Object{};
         current_obj_it++;
     }
-    inventory_array.at(8) = Object{};
 }
 
 void Inventory::select_object()
