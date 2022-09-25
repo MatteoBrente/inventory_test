@@ -23,7 +23,6 @@ private:
 
 public:
     Inventory();
-    ~Inventory();
     void select_object();
     void add_object();
 };

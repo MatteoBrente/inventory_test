@@ -9,8 +9,6 @@
 
 Inventory::Inventory() {current_obj_it = inventory_array.end();}
 
-Inventory::~Inventory() {current_obj_it = nullptr;}
-
 //PRIVATE FUNCTIONS
 
 void Inventory::obj_selection_switch(char c)
@@ -80,9 +78,10 @@ void Inventory::create_new_object(std::string obj_name)
 
 void Inventory::rearrange_inventory()
 {
-    while (current_obj_it != &inventory_array.at(8))
+    while (*(current_obj_it + 1) != Object{})
     {
-        *current_obj_it = *(current_obj_it+1);
+        *current_obj_it = *(current_obj_it + 1);
+        *(current_obj_it + 1) = Object{};
         current_obj_it++;
     }
     inventory_array.at(8) = Object{};
