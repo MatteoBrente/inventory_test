@@ -37,7 +37,6 @@ void print_menu (Inventory& inv)
 
 void menu_switch (Inventory& inv, char c)
 {
-    std::cin.ignore(1, '\n');
     switch (c)
     {
         case 'S':
