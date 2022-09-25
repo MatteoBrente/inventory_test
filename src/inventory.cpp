@@ -13,6 +13,9 @@ Inventory::Inventory() {current_obj_it = inventory_array.end();}
 
 void Inventory::obj_selection_switch(char c)
 {
+    std::cin.clear();
+    std::cin.ignore(1000, '\n');
+    
     switch (c)
     {
     case 'U':
